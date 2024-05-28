@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LearnMoreButton: View {
-    
     var title: String
     
     var body: some View {
@@ -16,7 +15,7 @@ struct LearnMoreButton: View {
             .font(.title2)
             .fontWeight(.semibold)
             .frame(width: 280, height: 50)
-            .background(.red)
+            .background(.black)
             .foregroundColor(.white)
             .cornerRadius(10)
     }
