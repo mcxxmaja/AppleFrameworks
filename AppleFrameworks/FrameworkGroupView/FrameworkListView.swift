@@ -16,9 +16,9 @@ struct FrameworkListView: View {
             List {
                 ForEach(MockData.frameworks) { framework in
                     NavigationLink {
-                        FrameworkDetailView(framework: framework, isShowingDetailView: $viewModel.isShowingDetailView)
+                        FrameworkDetailView(framework: framework, needsXButton: false, isShowingDetailView: $viewModel.isShowingDetailView)
                     } label: {
-                        FrameworkTitleView(framework: framework)
+                        FrameworkTitleView(framework: framework, imageSize: 70, horizontal: true)
                     }
                 }
             }

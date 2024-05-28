@@ -12,8 +12,7 @@ import SwiftData
 struct AppleFrameworksApp: App {
     var body: some Scene {
         WindowGroup {
-//            FrameworkGridView()
-            FrameworkListView()
+            FramworkRootView()
         }
     }
 }

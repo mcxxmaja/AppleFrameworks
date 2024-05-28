@@ -9,24 +9,57 @@ import SwiftUI
 
 struct FrameworkTitleView: View {
     let framework: Framework
+    let imageSize: CGFloat
+    let horizontal: Bool
     
     var body: some View {
-//        VStack { //FIXME: VSTACK FOR GRID
-        HStack {
-            Image(framework.imageName)
-                .resizable()
-                .frame(width: 70, height: 70) //FIXME: 90 FOR GRID
-            Text(framework.name)
-                .font(.title2)
-                .fontWeight(.semibold)
-                .scaledToFit()
-                .minimumScaleFactor(0.5)
-                .padding() //FIXME: FOR LIST ONLY
+        if horizontal {
+            HStack {
+                FrameworkImage(imageName: framework.imageName, size: imageSize)
+                FrameworkName(name: framework.name)
+            }
+        } else {
+            VStack {
+                FrameworkImage(imageName: framework.imageName, size: imageSize)
+                FrameworkName(name: framework.name)
+            }
+            .padding()
         }
-//        .padding() //FIXME: FOR GRID
+    }
+}
+
+struct FrameworkImage: View {
+    let imageName: String
+    let size: CGFloat
+    
+    var body: some View {
+        Image(imageName)
+            .resizable()
+            .frame(width: size, height: size)
+    }
+}
+
+struct FrameworkName: View {
+    let name: String
+    
+    var body: some View {
+        Text(name)
+            .font(.title2)
+            .fontWeight(.semibold)
+            .scaledToFit()
+            .minimumScaleFactor(0.5)
+            .padding()
     }
 }
 
 #Preview {
-    FrameworkTitleView(framework: MockData.sampleFramework)
+    FrameworkTitleView(framework: MockData.sampleFramework, imageSize: 70, horizontal: true)
+}
+
+#Preview {
+    FrameworkTitleView(framework: MockData.sampleFramework, imageSize: 90, horizontal: false)
+}
+
+#Preview {
+    FrameworkTitleView(framework: MockData.sampleFramework, imageSize: 100, horizontal: false)
 }

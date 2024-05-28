@@ -10,16 +10,19 @@ import SwiftUI
 struct FrameworkDetailView: View {
     
     var framework: Framework
+    let needsXButton: Bool
     @Binding var isShowingDetailView: Bool
     @State private var isShowingSafariView = false
     
     var body: some View {
         VStack {
-//            XDismissButton(isShowing: $isShowingDetailView) //FIXME: FOR GRID VIEW
+            if needsXButton {
+                XDismissButton(isShowing: $isShowingDetailView)
+            }
 
             Spacer()
             
-            FrameworkTitleView(framework: framework)
+            FrameworkTitleView(framework: framework, imageSize: 100, horizontal: false)
             Text(framework.description)
                 .padding()
                 .font(.body)
@@ -29,7 +32,7 @@ struct FrameworkDetailView: View {
             Button{
                 isShowingSafariView = true
             } label: {
-                AFButton(title: "Learn More")
+                LearnMoreButton(title: "Learn More")
             }
         }
         .sheet(isPresented: $isShowingSafariView) {
@@ -39,5 +42,8 @@ struct FrameworkDetailView: View {
 }
 
 #Preview {
-    FrameworkDetailView(framework: MockData.frameworks[0], isShowingDetailView: .constant(false))
+    FrameworkDetailView(framework: MockData.frameworks[0], needsXButton: false, isShowingDetailView: .constant(false))
+}
+#Preview {
+    FrameworkDetailView(framework: MockData.frameworks[0], needsXButton: true, isShowingDetailView: .constant(false))
 }

@@ -9,7 +9,18 @@ import SwiftUI
 
 struct FramworkRootView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            FrameworkListView()
+                .tabItem {
+                    Image(systemName: "list.bullet")
+                    Text("List")
+                }
+            FrameworkGridView()
+                .tabItem {
+                    Image(systemName: "square.grid.3x3.fill")
+                    Text("Grid")
+                }
+        }
     }
 }
 
