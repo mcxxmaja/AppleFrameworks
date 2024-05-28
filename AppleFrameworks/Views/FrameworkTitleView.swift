@@ -11,16 +11,22 @@ struct FrameworkTitleView: View {
     let framework: Framework
     
     var body: some View {
-        VStack {
+//        VStack { //FIXME: VSTACK FOR GRID
+        HStack {
             Image(framework.imageName)
                 .resizable()
-                .frame(width: 90, height: 90)
+                .frame(width: 70, height: 70) //FIXME: 90 FOR GRID
             Text(framework.name)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .scaledToFit()
                 .minimumScaleFactor(0.5)
+                .padding() //FIXME: FOR LIST ONLY
         }
-        .padding()
+//        .padding() //FIXME: FOR GRID
     }
+}
+
+#Preview {
+    FrameworkTitleView(framework: MockData.sampleFramework)
 }

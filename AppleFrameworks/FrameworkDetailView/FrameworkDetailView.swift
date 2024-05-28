@@ -15,7 +15,7 @@ struct FrameworkDetailView: View {
     
     var body: some View {
         VStack {
-            XDismissButton(isShowing: $isShowingDetailView)
+//            XDismissButton(isShowing: $isShowingDetailView) //FIXME: FOR GRID VIEW
 
             Spacer()
             
