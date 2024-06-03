@@ -44,22 +44,22 @@ struct FrameworkName: View {
     
     var body: some View {
         Text(name)
-            .font(.title2)
+            .font(.title3)
             .fontWeight(.semibold)
             .scaledToFit()
             .minimumScaleFactor(0.5)
-            .padding()
+            .foregroundStyle(Color(.label))
     }
 }
 
 #Preview {
-    FrameworkTitleView(framework: MockData.sampleFramework, imageSize: 70, horizontal: true)
+    FrameworkTitleView(framework: MockData.frameworks[0], imageSize: 70, horizontal: true)
 }
 
 #Preview {
-    FrameworkTitleView(framework: MockData.sampleFramework, imageSize: 90, horizontal: false)
+    FrameworkTitleView(framework: MockData.frameworks[3], imageSize: 90, horizontal: false)
 }
 
 #Preview {
-    FrameworkTitleView(framework: MockData.sampleFramework, imageSize: 100, horizontal: false)
+    FrameworkTitleView(framework: MockData.frameworks[5], imageSize: 100, horizontal: false)
 }

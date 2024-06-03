@@ -10,18 +10,10 @@ import SwiftUI
 struct FrameworkDetailView: View {
     
     var framework: Framework
-    let needsXButton: Bool
-    @Binding var isShowingDetailView: Bool
     @State private var isShowingSafariView = false
     
     var body: some View {
         VStack {
-            if needsXButton {
-                XDismissButton(isShowing: $isShowingDetailView)
-            }
-
-            Spacer()
-            
             FrameworkTitleView(framework: framework, imageSize: 150, horizontal: false)
             ScrollView {
                 Text(framework.description)
@@ -112,9 +104,9 @@ extension UIImage {
 
 
 #Preview {
-    FrameworkDetailView(framework: MockData.frameworks[0], needsXButton: false, isShowingDetailView: .constant(false))
+    FrameworkDetailView(framework: MockData.frameworks[0])
 }
 
 #Preview {
-    FrameworkDetailView(framework: MockData.frameworks[3], needsXButton: true, isShowingDetailView: .constant(false))
+    FrameworkDetailView(framework: MockData.frameworks[3])
 }
